@@ -1,11 +1,12 @@
 {{ partial "header" .}}
 
   {{ .Content }}
-  <ul id="all-tags">
-    {{ range $name, $taxonomy := .Site.Taxonomies.techs }}
-        {{ with $.Site.GetPage (printf "/techs/%s" $name) }}
-            <li><a href="{{ .Permalink }}">{{ $name | humanize }}</a></li>
-        {{ end }}
+  <h3>Verwendete Technologien</h3>
+  Hier sind alle Technologien aufgelistet, mit denen ich schon gearbeitet habe. Jede Technologie ist verlinkt zu einer Übersicht an Projekten, in denen ich diese verwendet habe.
+
+  <ul id="all-tags" class="independently-list">
+    {{ range .Site.Taxonomies.techs }}
+        <li><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a></li>
     {{ end }}
 </ul>
 
